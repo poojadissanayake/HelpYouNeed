@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "759873294296",
+    "firebase_url": "https://helpyouneed-9102c.firebaseio.com",
+    "project_id": "helpyouneed-9102c",
+    "storage_bucket": "helpyouneed-9102c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:759873294296:android:2284bfa14d1cf5df",
+        "android_client_info": {
+          "package_name": "lk.icbt.fyp.helpYouNeed"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "759873294296-tveqml5n2upisb7lkg8p8gaj60mkcv7l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "lk.icbt.fyp.helpYouNeed",
+            "certificate_hash": "383e0cfa41692c96387de93c97c5b0c05faa79c9"
+          }
+        },
+        {
+          "client_id": "759873294296-do3p38m64jmu74daabsi7cuiqu34es7s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAsW4T3ma-_60vzSOsOElffwHsexbfxTus"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "759873294296-do3p38m64jmu74daabsi7cuiqu34es7s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

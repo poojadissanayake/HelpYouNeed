@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="lk.icbt.fyp.helpYouNeed">
+
+    <uses-permission android:name="android.permission.PREVENT_POWER_KEY" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.front"
+        android:required="false" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="lk.icbt.fyp.helpYouNeed.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDcZrf9zfA_7Ctl_5tyjiygTBZJBGbsKlk" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <service android:name=".Chat.FirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <activity
+            android:name=".Chat.MainChatIntActivity"
+            android:exported="true" />
+        <activity android:name=".Chat.SettingsActivity" />
+        <activity
+            android:name=".Chat.StatusActivity"
+            android:parentActivityName=".Chat.SettingsActivity" />
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat" />
+        <activity
+            android:name=".Chat.UsersActivity"
+            android:parentActivityName=".Chat.MainChatIntActivity" />
+        <activity android:name=".Chat.ProfileChatActivity">
+            <intent-filter>
+                <action android:name="finChat_TARGET_NOTIFICATION" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Chat.ChatActivity"
+            android:parentActivityName=".Chat.MainChatIntActivity" />
+        <activity
+            android:name=".ui.MainActivity"
+            android:label="HelpYouNeed"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.auth.LoginActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.auth.SignupActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".ui.auth.ProfileInfoActivity" />
+        <activity android:name=".ui.auth.VerificationMethodActivity" />
+        <activity android:name=".ui.auth.VerifyMobileActivity" />
+        <activity
+            android:name=".PsycologyProfile.Profile_psycho"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".FriendLocation.ListOnline" />
+        <activity
+            android:name=".FriendLocation.MapTracking"
+            android:label="Map" />
+
+        <service
+            android:name=".HYNKeyboard.HYNKeyboard"
+            android:label="HYNKeyboard"
+            android:permission="android.permission.BIND_INPUT_METHOD">
+            <meta-data
+                android:name="android.view.im"
+                android:resource="@xml/method" />
+
+            <intent-filter>
+                <action android:name="android.view.InputMethod" />
+            </intent-filter>
+        </service>
+        <service
+            android:name=".helpers.IdleService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity android:name=".ui.auth.ProfileActivity" />
+        <activity android:name=".ui.auth.EditProfileActivity" />
+
+        <service
+            android:name=".ui.services.UserBehaviourService"
+            android:enabled="true"
+            android:exported="true" />
+        <service
+            android:name=".helpers.MyService"
+            android:label="My Service">
+            <intent-filter>
+                <action android:name="com.myapp.MyService" />
+            </intent-filter>
+        </service>
+
+        <receiver
+            android:name=".ui.services.UserInteractionsReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SCREEN_ON" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SCREEN_OFF" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".ui.services.UserBehaviourService$NotificationUserReplyReceiver" />
+        <receiver
+            android:name=".helpers.StartMyServiceAtBootReceiver"
+            android:label="StartMyServiceAtBootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.amazonaws.mobileconnectors.s3.transferutility.TransferService"
+            android:enabled="true" />
+        <service
+            android:name=".ui.services.MovementService"
+            android:enabled="true"
+            android:exported="true" />
+        <service
+            android:name=".ui.services.DeviceMovementService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity
+            android:name=".ui.auth.UserProfile"
+            android:label="@string/title_activity_user_profile"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".PsycologyProfile.Psychology_Profile" />
+        <activity android:name=".Images.ImagesSuggesting" />
+        <activity android:name=".Videos.VideoSuggesting" />
+    </application>
+
+</manifest>

@@ -1,0 +1,74 @@
+<resources>
+    <string name="app_name">HelpYouNeed</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <!--LoginPage-->
+    <string name="login_button">Login</string>
+
+    <string name="title_activity_signup">SignupActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="welcome_to_HelpYouNeed_chat">Welcome to HelpYouNeed Chat</string>
+    <string name="this_is_main_page">This is Main Page!</string>
+    <string name="need_a_new_account">Need a new account</string>
+    <string name="email">Email</string>
+    <string name="display_name">Display Name</string>
+    <string name="create_a_new_account">Create a New Account</string>
+    <string name="password">Password</string>
+    <string name="Logout" />
+    <string name="logout">Logout</string>
+    <string name="title_activity_login">Sign in</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="sign_in">SIGN IN</string>
+    <string name="Login" />
+    <string name="login">Login</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hi_there_i_m_using_HelpYouNeed_chat">Hi there, I\'m using HelpYouNeed Chat</string>
+    <string name="change_image">Change Image</string>
+    <string name="change_status">Change Status</string>
+    <string name="account_settings">Account Settings</string>
+    <string name="button">Button</string>
+    <string name="hint">hint</string>
+    <string name="save">Save</string>
+    <string name="change_your_status_here" />
+    <string name="enter_status">Enter Status</string>
+    <string name="register_to_chat">Register to Chat</string>
+    <string name="display_status">Display Status</string>
+    <string name="total_friends">Total Friends</string>
+    <string name="send_friend_request">SEND FRIEND REQUEST</string>
+    <string name="decline_friend_request">DECLINE FRIEND REQUEST</string>
+    <string name="log_out" />
+    <string name="all_users">All Users</string>
+    <string name="current_user_status">Current User Status</string>
+    <string name="user_default_status">User default Status</string>
+
+
+    <string name="shared_preferences_file_name">dataFile</string>
+    <string name="sleep_mode">sleepMode</string>
+    <string name="title_activity_user_profile">UserProfile</string>
+    <string name="upload_file" />
+    <string name="capture_image">Capture Image</string>
+    <string name="view_stress">View Stress</string>
+    <string name="todo">TODO</string>
+
+
+</resources>

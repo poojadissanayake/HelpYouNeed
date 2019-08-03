@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        
+        <item
+            android:id="@+id/menu_item_profile"
+            android:icon="@drawable/avatar"
+            android:title="Profile" />
+        <item
+            android:id="@+id/menu_item_chat"
+            android:icon="@drawable/chat"
+            android:title="Chat" />
+        <item
+            android:id="@+id/nav_friend_location"
+            android:icon="@drawable/ic_location_on_black"
+            android:title="Find Friends" />
+        <item
+            android:id="@+id/nav_psychology"
+            android:icon="@drawable/ic_person_black_24dp"
+            android:title="Psychology Proffesions" />
+    </group>
+
+    <group android:checkableBehavior="single">
+        <menu>
+            <item
+                android:id="@+id/menu_item_invite"
+                android:icon="@drawable/smile"
+                android:title="Invite Friends" />
+            <item
+                android:id="@+id/menu_item_images"
+                android:icon="@drawable/help"
+                android:title="Images" />
+            <item
+                android:id="@+id/menu_item_videos"
+                android:icon="@drawable/help"
+                android:title="Videos" />
+
+            <item
+                android:id="@+id/menu_item_logout"
+                android:icon="@drawable/exit"
+                android:title="Logout" />
+
+        </menu>
+    </group>
+
+</menu>
