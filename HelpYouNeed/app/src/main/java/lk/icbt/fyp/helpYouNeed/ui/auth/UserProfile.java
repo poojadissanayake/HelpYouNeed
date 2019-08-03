@@ -58,14 +58,14 @@ public class UserProfile extends AppCompatActivity {
         final TextView profileDOBTxt = findViewById(R.id.user_profile_dob);
         final TextView profileGenderTxt = findViewById(R.id.user_profile_gender);
 
-
-        profileDOBTxt.setText("1992-08-12");
-        profileEmailTxt.setText("supun_wijesundara@hotmail.com");
-        profileNameTxt.setText("Supun Dee");
-//        profileFirstNameTxt.setText("Supun");
-//        profileLastNameTxt.setText("Wijesundara");
-        profileUniversityTxt.setText("ICBT");
-        profileGenderTxt.setText("Male");
+//
+//        profileDOBTxt.setText("1992-08-12");
+//        profileEmailTxt.setText("supun_wijesundara@hotmail.com");
+//        profileNameTxt.setText("Supun Dee");
+////        profileFirstNameTxt.setText("Supun");
+////        profileLastNameTxt.setText("Wijesundara");
+//        profileUniversityTxt.setText("ICBT");
+//        profileGenderTxt.setText("Male");
 
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -87,7 +87,7 @@ public class UserProfile extends AppCompatActivity {
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-
+                System.out.println("db error");
             }
         });
     }

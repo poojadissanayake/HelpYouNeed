@@ -131,7 +131,7 @@ public class MainActivity extends AppCompatActivity
 
     private void ReadText() {
         String SDCARD = Environment.getExternalStorageDirectory().getAbsolutePath();
-        String FILENAME = "FinKeyboard.txt";
+        String FILENAME = "HYNKeyboard.txt";
 
         File fis = new File(SDCARD + File.separator + FILENAME);
         StringBuilder text = new StringBuilder();
@@ -143,9 +143,7 @@ public class MainActivity extends AppCompatActivity
                 text.append(line);
 
                 RequestQueue MyRequestQueue = Volley.newRequestQueue(this);
-               // String url = "http://ssdsliit.000webhostapp.com/post.php";
-//                String url = "http://dasunweerasooriya.000webhostapp.com/post.php";
-                String url = "http://192.168.8.101:5000/predict";
+                String url = "http://192.168.1.3:5000/predict"; //ip of lap
                 System.out.println(url);
                 final String finalLine = line;
 
@@ -247,7 +245,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_POWER) {
-            Log.w("FIN", "POWER BUTTON");
+            Log.w("HelpYouNeed", "POWER BUTTON");
             // Do something here...
             event.startTracking(); // Needed to track long presses
             return true;
