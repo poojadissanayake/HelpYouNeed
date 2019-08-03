@@ -142,7 +142,7 @@ public class UserBehaviourService extends Service {
                 new NotificationCompat.Builder(context)
                         .setSmallIcon(R.drawable.user)
                         .addAction(R.drawable.cast_ic_expanded_controller_stop, "NO", testIntent)
-                        .setContentTitle("FIN Sleep Verification")
+                        .setContentTitle("HelpYouNeed Sleep Verification")
                         .setContentText("Are you sleeping?");
 
         //Create the intent that’ll fire when the user taps the notification//
