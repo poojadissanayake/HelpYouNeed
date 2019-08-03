@@ -59,7 +59,7 @@ public class ProfileInfoActivity extends AppCompatActivity {
         String dob = dobTxt.getText().toString();
         String gender = genderSelected.getText().toString();
         String image = "default";
-        String status = "Hi there, I am using FIN Chat.";
+        String status = "Hi there, I am using HelpYouNeed Chat.";
         String thumb_image = "default";
         String device_token = FirebaseInstanceId.getInstance().getToken();
 
