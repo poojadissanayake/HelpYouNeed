@@ -1,26 +1,30 @@
 package lk.icbt.fyp.helpYouNeed.models;
 
-public class User {
+ public  class User {
 
-    private String uid;
-    private String firstName;
-    private String lastName;
-    private String university;
-    private String dob;
-    private String gender;
-    public String image;
-    public String status;
-    public String thumb_image;
-    private String device_token;
+     public String uid;
+     public String firstName;
+     public String lastName;
+     public String university;
+     public String dob;
+     public String gender;
+     private String bfNum;
+     public String image;
+     public String status;
+     public String thumb_image;
+     public String device_token;
 
-    public User(){};
+     public User(){};
 
-    public User(String firstName, String lastName, String university, String dob, String gender, String image, String status, String thumb_image, String device_token){
+
+
+     public  User(String firstName, String lastName, String university, String dob, String gender, String bfNum, String image, String status, String thumb_image, String device_token){
         this.firstName = firstName;
         this.lastName = lastName;
         this.university = university;
         this.dob = dob;
         this.gender = gender;
+        this.bfNum = bfNum;
         this.image = image;
         this.status = status;
         this.thumb_image = thumb_image;
@@ -28,7 +32,7 @@ public class User {
     }
 
 
-    public String getUid() {
+    public  String getUid() {
         return uid;
     }
 
@@ -38,6 +42,10 @@ public class User {
 
     public String getToken() {return device_token;}
 
+    public String getBfNum() {
+         return bfNum;
+     }
+
     public String getDob() {
         return dob;
     }
@@ -45,6 +53,7 @@ public class User {
     public String getFirstName() {
         return firstName;
     }
+
 
     public String getGender() {
         return gender;

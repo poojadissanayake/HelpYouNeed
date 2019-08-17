@@ -114,11 +114,11 @@
                 android:id="@+id/test"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/head"
+                android:fontFamily="@font/"
                 android:text="HelpYouNeed"
                 android:textAlignment="center"
                 android:textColor="@android:color/background_light"
-                android:textSize="130px"
+                android:textSize="100px"
                 android:textStyle="bold" />
 
             <TextView

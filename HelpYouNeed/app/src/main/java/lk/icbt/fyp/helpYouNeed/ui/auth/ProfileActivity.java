@@ -51,17 +51,11 @@ public class ProfileActivity extends AppCompatActivity {
         final TextView profileLastNameTxt = findViewById(R.id.profile_lastname);
         final TextView profileUniversityTxt = findViewById(R.id.profile_university);
         final TextView profileDOBTxt = findViewById(R.id.profile_dob);
+        final TextView bestfrendnumber = findViewById(R.id.frenphone);
         final TextView profileGenderTxt = findViewById(R.id.profile_gender);
 
 
-//        profileDOBTxt.setText("1992-08-12");
-//        profileEmailTxt.setText("supun_wijesundara@hotmail.com");
-//        profileNameTxt.setText("Supun Dee");
-//        profileFirstNameTxt.setText("Supun");
-//        profileLastNameTxt.setText("Wijesundara");
-//        profileUniversityTxt.setText("SLIIT");
-//        profileGenderTxt.setText("Male");
-
+        System.out.println("e3rrorrrrrrrrrrrsssssssssssssssssssssssrrrrrrrr" + mUser);
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference ref = database.getReference("users");
@@ -70,6 +64,8 @@ public class ProfileActivity extends AppCompatActivity {
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                System.out.println("e3rrorrrrrrrrrrrrrrrrrrr" + dataSnapshot);
+
                 User user = dataSnapshot.getValue(User.class);
                 profileDOBTxt.setText(user.getDob());
                 profileEmailTxt.setText(mUser.getEmail());
@@ -78,6 +74,7 @@ public class ProfileActivity extends AppCompatActivity {
                 profileLastNameTxt.setText(user.getLastName());
                 profileNameTxt.setText(mUser.getDisplayName());
                 profileUniversityTxt.setText(user.getUniversity());
+                bestfrendnumber.setText(user.getBfNum());
             }
 
             @Override

@@ -14,7 +14,17 @@ import android.support.v4.app.NotificationCompat.Builder;
 import android.telephony.SmsManager;
 import android.util.Log;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+
 import lk.icbt.fyp.helpYouNeed.R;
+import lk.icbt.fyp.helpYouNeed.models.User;
 import lk.icbt.fyp.helpYouNeed.ui.MainActivity;
 
 public class MyService extends Service {
@@ -24,6 +34,9 @@ public class MyService extends Service {
     Handler handler;
     private boolean isOn = false;
 
+
+    private FirebaseAuth mAuth;
+    private FirebaseUser mUser;
 
     Runnable runnable = new Runnable() {
         public void run() {
@@ -77,6 +90,8 @@ public class MyService extends Service {
 
 
     private void sendNotification(String messageBody, String count) {
+
+
         Intent intent = new Intent(this, MainActivity.class);
         intent.putExtra("fromNotification", count);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -101,12 +116,34 @@ public class MyService extends Service {
 //        notificationBuilder.addAction(R.drawable.ic_launcher_background, "Yes", pendingIntentConfirm);
 //        notificationBuilder.addAction(R.drawable.ic_launcher_background, "No", pendingIntentCancel);
         ((NotificationManager) getSystemService(context.NOTIFICATION_SERVICE)).notify(11111, notificationBuilder.build());
-        /*Intent map = new Intent(MyService.this,ListOnline.class);
-        startActivity(map);*/
 
-        //sendSMS("0752934929", "I'm in stress. Please call me!");
+        sendSMSone();
 
     }
+
+    private void sendSMSone(){
+
+        mAuth = FirebaseAuth.getInstance();
+        mUser = mAuth.getCurrentUser();
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference ref = database.getReference("users");
+        Query query = ref.child(mUser.getUid());
+
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                User user = dataSnapshot.getValue(User.class);
+                sendSMS(user.getBfNum(), "I'm in stress. Please call me!");
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
     private void sendSMS(String s, String s1) {
         SmsManager sms = SmsManager.getDefault();
         sms.sendTextMessage(s, null, s1, null, null);

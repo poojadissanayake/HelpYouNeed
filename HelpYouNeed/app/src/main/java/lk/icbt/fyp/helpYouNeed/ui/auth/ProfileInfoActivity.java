@@ -47,6 +47,7 @@ public class ProfileInfoActivity extends AppCompatActivity {
         TextView lastNameTxt = findViewById(R.id.lastName);
         TextView universityTxt = findViewById(R.id.university);
         TextView dobTxt = findViewById(R.id.dob);
+        TextView frenum = findViewById(R.id.frenphone);
         RadioGroup genderRG = findViewById(R.id.genderRG);
 
         int selectedId = genderRG.getCheckedRadioButtonId();
@@ -55,9 +56,10 @@ public class ProfileInfoActivity extends AppCompatActivity {
 
         String firstName = firstNameTxt.getText().toString();
         String lastName = lastNameTxt.getText().toString();
+        String gender = genderSelected.getText().toString();
         String university = universityTxt.getText().toString();
         String dob = dobTxt.getText().toString();
-        String gender = genderSelected.getText().toString();
+        String frenphone = frenum.getText().toString();
         String image = "default";
         String status = "Hi there, I am using HelpYouNeed Chat.";
         String thumb_image = "default";
@@ -93,9 +95,16 @@ public class ProfileInfoActivity extends AppCompatActivity {
             return;
         }
 
-        final User user = new User(firstName, lastName, university, dob, gender, image, status, thumb_image, device_token);
+        if(frenphone.isEmpty() || frenphone == null){
+            Toast.makeText(ProfileInfoActivity.this, "Please Enter Your Best Friend's  Number!",
+                    Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        final User user = new User(firstName, lastName, university, dob, gender, frenphone, image, status, thumb_image, device_token);
 
         user.setUid(mUser.getUid());
+
 
 
         UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()

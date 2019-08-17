@@ -136,7 +136,6 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:paddingLeft="20dp"
-                        android:text="Wiliam@gmail.com"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -154,7 +153,6 @@
 
                     <TextView
                         android:id="@+id/user_profile_university"
-
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"

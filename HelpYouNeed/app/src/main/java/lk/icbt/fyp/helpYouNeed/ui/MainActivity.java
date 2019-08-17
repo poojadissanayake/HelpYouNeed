@@ -117,6 +117,8 @@ public class MainActivity extends AppCompatActivity
         if(mUser != null){
             displayNameTxt.setText(mUser.getDisplayName());
             displayEmailTxt.setText(mUser.getEmail());
+
+            System.out.println("main activity wadaaaaaaaaaaaaaaaaaaa" + mUser);
         }
 
         Intent explicitIntent = new Intent(this, UserBehaviourService.class);

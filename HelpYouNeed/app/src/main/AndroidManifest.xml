@@ -95,7 +95,9 @@
         <activity
             android:name=".ui.auth.SignupActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".ui.auth.ProfileInfoActivity" />
+        <activity android:name=".ui.auth.ProfileInfoActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
         <activity android:name=".ui.auth.VerificationMethodActivity" />
         <activity android:name=".ui.auth.VerifyMobileActivity" />
         <activity
@@ -177,6 +179,7 @@
             android:name=".ui.auth.UserProfile"
             android:label="@string/title_activity_user_profile"
             android:theme="@style/AppTheme.NoActionBar" />
+
         <activity android:name=".PsycologyProfile.Psychology_Profile" />
         <activity android:name=".Images.ImagesSuggesting" />
         <activity android:name=".Videos.VideoSuggesting" />
