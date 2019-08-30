@@ -9,17 +9,25 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.IBinder;
 import android.support.v4.app.NotificationCompat;
+import android.telephony.SmsManager;
 import android.util.Log;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
+import lk.icbt.fyp.helpYouNeed.Images.ImagesSuggesting;
 import lk.icbt.fyp.helpYouNeed.R;
+import lk.icbt.fyp.helpYouNeed.models.User;
+import lk.icbt.fyp.helpYouNeed.ui.MainActivity;
 
 public class UserBehaviourService extends Service {
 
@@ -30,7 +38,7 @@ public class UserBehaviourService extends Service {
     private DatabaseReference sleepStatusRef;
     private FirebaseAuth mAuth;
     private FirebaseUser currentUser;
-
+    private FirebaseUser mUser;
 
     private Context context;
 
@@ -153,7 +161,38 @@ public class UserBehaviourService extends Service {
                 (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 
         mNotificationManager.notify(001, mBuilder.build());
+        Intent map = new Intent(this, ImagesSuggesting.class);
+        startActivity(map);
+        //sendSMSone();
 
 
+    }
+
+    private void sendSMSone(){
+
+        mAuth = FirebaseAuth.getInstance();
+        mUser = mAuth.getCurrentUser();
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference ref = database.getReference("users");
+        Query query = ref.child(mUser.getUid());
+
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                User user = dataSnapshot.getValue(User.class);
+                sendSMS(user.getBfNum(), "I'm in stress. Please call me!");
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    private void sendSMS(String s, String s1) {
+        SmsManager sms = SmsManager.getDefault();
+        sms.sendTextMessage(s, null, s1, null, null);
     }
 }

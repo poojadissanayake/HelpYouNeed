@@ -14,8 +14,7 @@ import android.support.v4.app.NotificationCompat.Builder;
 import android.telephony.SmsManager;
 import android.util.Log;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -23,7 +22,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import lk.icbt.fyp.helpYouNeed.Images.ImagesSuggesting;
 import lk.icbt.fyp.helpYouNeed.R;
+import lk.icbt.fyp.helpYouNeed.Videos.VideoSuggesting;
 import lk.icbt.fyp.helpYouNeed.models.User;
 import lk.icbt.fyp.helpYouNeed.ui.MainActivity;
 
@@ -35,8 +36,7 @@ public class MyService extends Service {
     private boolean isOn = false;
 
 
-    private FirebaseAuth mAuth;
-    private FirebaseUser mUser;
+
 
     Runnable runnable = new Runnable() {
         public void run() {
@@ -92,17 +92,17 @@ public class MyService extends Service {
     private void sendNotification(String messageBody, String count) {
 
 
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, VideoSuggesting.class);
         intent.putExtra("fromNotification", count);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        Intent mainIntent = new Intent(this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        //Intent mainIntent = new Intent(this, VideoSuggesting.class);
 //        Intent intentConfirm = new Intent(this, NotificationActionReceiver.class);
 //        intentConfirm.setAction("Yes");
 //        intentConfirm.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 //        Intent intentCancel = new Intent(this, NotificationActionReceiver.class);
 //        intentCancel.setAction("No");
 //        intentCancel.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, MODE_PRIVATE, intent, PendingIntent.FLAG_ONE_SHOT);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 //        PendingIntent pendingIntentConfirm = PendingIntent.getBroadcast(this, 0, intentConfirm, PendingIntent.FLAG_CANCEL_CURRENT);
 //        PendingIntent pendingIntentCancel = PendingIntent.getBroadcast(this, 1, intentCancel, PendingIntent.FLAG_CANCEL_CURRENT);
         Builder notificationBuilder = new Builder(this)
@@ -117,36 +117,10 @@ public class MyService extends Service {
 //        notificationBuilder.addAction(R.drawable.ic_launcher_background, "No", pendingIntentCancel);
         ((NotificationManager) getSystemService(context.NOTIFICATION_SERVICE)).notify(11111, notificationBuilder.build());
 
-        sendSMSone();
+
 
     }
 
-    private void sendSMSone(){
 
-        mAuth = FirebaseAuth.getInstance();
-        mUser = mAuth.getCurrentUser();
-
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference ref = database.getReference("users");
-        Query query = ref.child(mUser.getUid());
-
-        query.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                User user = dataSnapshot.getValue(User.class);
-                sendSMS(user.getBfNum(), "I'm in stress. Please call me!");
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-    }
-
-    private void sendSMS(String s, String s1) {
-        SmsManager sms = SmsManager.getDefault();
-        sms.sendTextMessage(s, null, s1, null, null);
-    }
 }
 

@@ -10,6 +10,6 @@
         android:id="@+id/videoViewId"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="600px"
-        android:layout_marginTop="600px"/>
+        android:layout_marginBottom="400px"
+        android:layout_marginTop="400px"/>
 </android.support.constraint.ConstraintLayout>
