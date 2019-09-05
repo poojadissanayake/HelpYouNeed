@@ -29,6 +29,7 @@ public class SignupActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
         mAuth = FirebaseAuth.getInstance();
+        onBackPressed();
     }
 
     public void goToLogin(View view) {
@@ -42,29 +43,57 @@ public class SignupActivity extends AppCompatActivity {
         TextView emailTxt = findViewById(R.id.mail);
         String email = emailTxt.getText().toString();
 
-        TextView passwordTxt = findViewById(R.id.pswrdd);
+        TextView passwordTxt = findViewById(R.id.passwrd);
         String password = passwordTxt.getText().toString();
 
-        mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
 
-                            mUser = mAuth.getCurrentUser();
+        TextView conpasswordTxt = findViewById(R.id.conpassword);
+        String conpassword = conpasswordTxt.getText().toString();
 
-                            updateUI(mUser);
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                            Toast.makeText(SignupActivity.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
-                            updateUI(null);
+        TextView mobphoneTxt = findViewById(R.id.mobphone);
+        String mobphone = mobphoneTxt.getText().toString();
+
+        //Signup user
+
+        if(password.length() < 6) {
+            Toast.makeText(SignupActivity.this, "Password must have more than 6 characters!",
+                    Toast.LENGTH_SHORT).show();
+        }else if(!password.equals(conpassword)){
+            Toast.makeText(SignupActivity.this, "Password and confirm password must match!",
+                    Toast.LENGTH_SHORT).show();
+        }
+        else if(mobphone.length()!=10){
+            Toast.makeText(SignupActivity.this, "Phone number needs to have 10 digits!",
+                    Toast.LENGTH_SHORT).show();
+        }
+        else{
+            mAuth.createUserWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+
+                                mUser = mAuth.getCurrentUser();
+
+                                updateUI(mUser);
+                            } else {
+                                // If sign in fails, display a message to the user.
+                                Log.w(TAG, "createUserWithEmail:failure", task.getException());
+                                Toast.makeText(SignupActivity.this, "Authentication failed.",
+                                        Toast.LENGTH_SHORT).show();
+                                updateUI(null);
+                            }
+
+                            // ...
                         }
+                    });
+        }
 
-                        // ...
-                    }
-                });
+    }
+    @Override
+    public void onBackPressed() {
+        // super.onBackPressed();
+        return;
     }
 
     private void updateUI(FirebaseUser user){

@@ -25,6 +25,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -118,7 +119,6 @@ public class MainActivity extends AppCompatActivity
             displayNameTxt.setText(mUser.getDisplayName());
             displayEmailTxt.setText(mUser.getEmail());
 
-            System.out.println("main activity wadaaaaaaaaaaaaaaaaaaa" + mUser);
         }
 
         Intent explicitIntent = new Intent(this, UserBehaviourService.class);
@@ -129,6 +129,7 @@ public class MainActivity extends AppCompatActivity
 
 
         ReadText();
+        onBackPressed();
     }
 
     private void ReadText() {
@@ -264,6 +265,11 @@ public class MainActivity extends AppCompatActivity
         return super.onKeyLongPress(keyCode, event);
     }
 
+    @Override
+    public void onBackPressed() {
+        // super.onBackPressed();
+        return;
+    }
 
 
     @Override

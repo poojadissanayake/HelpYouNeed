@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,24 +29,6 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseUser mUser;
     private Context context;
-//    //Create broadcast object
-//    BroadcastReceiver mybroadcast = new BroadcastReceiver() {
-//        //When Event is published, onReceive method is called
-//        @Override
-//        public void onReceive(Context context, Intent intent) {
-//            // TODO Auto-generated method stub
-//            Log.i("[BroadcastReceiver]", "MyReceiver");
-//
-//            if (intent.getAction().equals(Intent.ACTION_SCREEN_ON)) {
-//                Log.i("[BroadcastReceiver]", "Screen ON");
-//            }
-//            else if (intent.getAction().equals(Intent.ACTION_SCREEN_OFF)) {
-//                Log.i("[BroadcastReceiver]", "Screen OFF");
-//            }
-//
-//        }
-//    };
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,9 +44,7 @@ public class LoginActivity extends AppCompatActivity {
         startService(explicitIntent);
 
         updateUI(mUser);
-
-//        registerReceiver(mybroadcast, new IntentFilter(Intent.ACTION_SCREEN_ON));
-//        registerReceiver(mybroadcast, new IntentFilter(Intent.ACTION_SCREEN_OFF));
+        onBackPressed();
     }
 
     @Override
@@ -116,6 +97,13 @@ public class LoginActivity extends AppCompatActivity {
         Intent mainIntent = new Intent(this, MainActivity.class);
         startActivity(mainIntent);
 
+
+
+    }
+    @Override
+    public void onBackPressed() {
+        // super.onBackPressed();
+        return;
     }
 
     public void goToSignUp(View view) {

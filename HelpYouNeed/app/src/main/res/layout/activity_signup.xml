@@ -48,16 +48,16 @@
                 android:paddingVertical="16dp">
 
                 <EditText
-                    android:id="@+id/usrusr"
+                    android:id="@+id/passwrd"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Username"
+                    android:hint="Password"
                     android:textColorHint="#d9e5f3"
                     android:layout_marginLeft="15dp"
                     android:background="#00000000"
                     android:letterSpacing="0.1"
                     android:textSize="16dp"
-                    android:inputType="text"
+                    android:inputType="textPassword"
                     android:textColor="#fff"
                     />
             </LinearLayout>
@@ -72,10 +72,10 @@
                 android:paddingVertical="16dp">
 
                 <EditText
-                    android:id="@+id/pswrdd"
+                    android:id="@+id/conpassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Password"
+                    android:hint="Confirm Password"
                     android:textColorHint="#d9e5f3"
                     android:layout_marginLeft="15dp"
                     android:background="#00000000"

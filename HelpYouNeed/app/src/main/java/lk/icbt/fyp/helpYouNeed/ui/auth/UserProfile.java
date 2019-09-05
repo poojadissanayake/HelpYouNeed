@@ -55,11 +55,7 @@ public class UserProfile extends AppCompatActivity {
         final TextView profileNameTxt = findViewById(R.id.user_profile_name);
 
         final TextView profileEmailTxt = findViewById(R.id.user_profile_email);
-//        final TextView profileFirstNameTxt = findViewById(R.id.profile_firstname);
-//        final TextView profileLastNameTxt = findViewById(R.id.profile_lastname);
-        final TextView profileUniversityTxt = findViewById(R.id.user_profile_university);
-        final TextView profileDOBTxt = findViewById(R.id.user_profile_dob);
-        final TextView profileGenderTxt = findViewById(R.id.user_profile_gender);
+
 
 
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -71,10 +67,8 @@ public class UserProfile extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                User user = new User();
-                System.out.println("wadaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" + dataSnapshot);
-
                 //User user =  dataSnapshot.child(mUser.getUid()).getValue(User.class);
-                profileUniversityTxt.setText("hahahahahahahahah" + user.getUniversity()); //null value ekak enne
+
             }
 
             @Override
@@ -86,12 +80,7 @@ public class UserProfile extends AppCompatActivity {
         if (mUser != null) {
             profileNameTxt.setText(mUser.getDisplayName());
             profileEmailTxt.setText(mUser.getEmail());
-            profileUniversityTxt.setText(mUser.getPhoneNumber());
 
-
-            System.out.println("ahhhhhhhhhhhhhhhhhhhdjdjdjddkdjjkdmkmkdd ");
-
-            System.out.println("main activity wadaaaaaaaaaaaaaaaaaaa" + mUser);
         }
     }
 

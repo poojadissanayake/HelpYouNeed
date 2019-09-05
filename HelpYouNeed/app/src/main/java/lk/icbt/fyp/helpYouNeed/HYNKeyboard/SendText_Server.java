@@ -17,7 +17,6 @@ import com.amazonaws.services.s3.AmazonS3Client;
 
 import java.io.File;
 
-import lk.sliit.cdap.fin.R;
 
 public class SendText_Server extends AppCompatActivity {
 
