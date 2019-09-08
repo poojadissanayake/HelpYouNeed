@@ -175,11 +175,6 @@
             android:enabled="true"
             android:exported="true" />
 
-        <activity
-            android:name=".ui.auth.UserProfile"
-            android:label="@string/title_activity_user_profile"
-            android:theme="@style/AppTheme.NoActionBar" />
-
         <activity android:name=".PsycologyProfile.Psychology_Profile" />
         <activity android:name=".Images.ImagesSuggesting" />
         <activity android:name=".Videos.VideoSuggesting" />

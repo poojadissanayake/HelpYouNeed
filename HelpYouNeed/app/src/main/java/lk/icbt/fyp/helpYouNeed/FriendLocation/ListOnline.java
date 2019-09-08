@@ -379,10 +379,6 @@ public class ListOnline extends AppCompatActivity  implements GoogleApiClient.Co
             currentRef.child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                     .setValue(new User(FirebaseAuth.getInstance().getCurrentUser().getEmail(),"Online"));
         }
-        if (item.getItemId()==R.id.action_logout)
-        {
-            currentUserRef.removeValue();
-        }
         return true;
     }
 

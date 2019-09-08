@@ -37,7 +37,7 @@ public class MainChatIntActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         //mToolbar = (Toolbar) findViewById(R.id.main_page_toolbar);
-        //mToolbar.setTitle("Fin Chat");
+        //mToolbar.setTitle("HYN Chat");
 
         if (mAuth.getCurrentUser() != null) {
 

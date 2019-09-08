@@ -55,8 +55,6 @@ public class ProfileActivity extends AppCompatActivity {
         final TextView profileGenderTxt = findViewById(R.id.profile_gender);
 
 
-        System.out.println("e3rrorrrrrrrrrrrsssssssssssssssssssssssrrrrrrrr" + mUser);
-
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference ref = database.getReference("users");
         Query query = ref.child(mUser.getUid());
@@ -64,7 +62,6 @@ public class ProfileActivity extends AppCompatActivity {
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                System.out.println("e3rrorrrrrrrrrrrrrrrrrrr" + dataSnapshot);
 
                 User user = dataSnapshot.getValue(User.class);
                 profileDOBTxt.setText(user.getDob());

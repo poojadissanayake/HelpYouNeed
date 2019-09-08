@@ -74,6 +74,7 @@
         <Key android:keyLabel="/" android:keyWidth="10%p"  android:codes="47"/>
         <Key android:keyLabel="SPACE" android:keyWidth="40%p" android:isRepeatable="true" android:codes="32"/>
         <Key android:keyLabel="." android:codes="46"/>
+        <Key android:codes="64" android:keyLabel="\@" android:keyEdgeFlags="right"/>
         <Key android:keyLabel="DONE" android:keyWidth="20%p" android:keyEdgeFlags="right" android:codes="-4"/>
     </Row>
 

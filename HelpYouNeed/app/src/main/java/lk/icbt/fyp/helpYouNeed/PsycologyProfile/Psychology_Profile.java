@@ -24,7 +24,7 @@ public class Psychology_Profile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_psychology__profile);
 
-        String[] NAMES={"Dr.abc aabbcc","Dr.bb bbb"};
+        String[] NAMES={"Dr.DOC No1","Dr.DOC No2"};
         int[] IMAGES={R.drawable.doc1, R.drawable.doc2};
         String[] DESCRIPTION={"Counseling","Counseling"};
 

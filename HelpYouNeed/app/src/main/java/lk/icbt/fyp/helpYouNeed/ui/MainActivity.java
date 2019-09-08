@@ -25,7 +25,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -33,12 +32,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.UploadTask;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -57,7 +52,6 @@ import lk.icbt.fyp.helpYouNeed.PsycologyProfile.Psychology_Profile;
 import lk.icbt.fyp.helpYouNeed.R;
 import lk.icbt.fyp.helpYouNeed.Videos.VideoSuggesting;
 import lk.icbt.fyp.helpYouNeed.ui.auth.LoginActivity;
-import lk.icbt.fyp.helpYouNeed.ui.auth.UserProfile;
 import lk.icbt.fyp.helpYouNeed.ui.fragments.chat;
 import lk.icbt.fyp.helpYouNeed.ui.fragments.main;
 import lk.icbt.fyp.helpYouNeed.ui.fragments.music;
@@ -91,8 +85,8 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        Intent videos = new Intent(MainActivity.this,VideoSuggesting.class);
-        startActivity(videos);
+//        Intent videos = new Intent(MainActivity.this,VideoSuggesting.class);
+//        startActivity(videos);
 
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(R.layout.abs_layout);
@@ -230,7 +224,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void getNotification() {
-        Intent intent = new Intent(this,ListOnline.class);
+        Intent intent = new Intent(this,Psychology_Profile.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(MainActivity.this,0,intent,PendingIntent.FLAG_UPDATE_CURRENT);
         Notification.Builder notification = new Notification.Builder(MainActivity.this)
                 .setSmallIcon(R.drawable.head)
@@ -287,11 +281,8 @@ public class MainActivity extends AppCompatActivity
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        else if(item.getItemId() == R.id.refresh) {
+
+        if(item.getItemId() == R.id.refresh) {
             Intent intent = new Intent(MainActivity.this,MainActivity.class);
             startActivity(intent);
             finish();
@@ -305,18 +296,8 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.menu_item_profile) {
-            Intent profileIntent = new Intent(MainActivity.this, UserProfile.class);
-            startActivity(profileIntent);
 
-        }
-//        else if (id == R.id.menu_item_camera) {
-//            Intent map = new Intent(MainActivity.this,Camera_Activity.class);
-//            startActivity(map);
-//
-//
-//        }
-        else if (id == R.id.menu_item_chat) {
+        if (id == R.id.menu_item_chat) {
             Intent chat = new Intent(MainActivity.this,MainChatIntActivity.class);
             startActivity(chat);
 //            Intent map = new Intent(MainActivity.this,Read_text.class);
@@ -341,11 +322,7 @@ public class MainActivity extends AppCompatActivity
 
 
         }
-        else if (id == R.id.menu_item_invite) {
-            Intent map = new Intent(MainActivity.this,ImagesSuggesting.class);
-            startActivity(map);
-
-        } else if (id == R.id.menu_item_images) {
+       else if (id == R.id.menu_item_images) {
             Intent images = new Intent(MainActivity.this,ImagesSuggesting.class);
             startActivity(images);
 

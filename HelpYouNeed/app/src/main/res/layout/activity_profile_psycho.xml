@@ -33,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
-                android:text="Dr.Pradeep Kariyawasam"
+                android:text="Dr.DOC NO 1"
                 android:textColor="@color/graylight"
                 android:textSize="25sp"
                 android:textStyle="bold" />
@@ -88,7 +88,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:paddingLeft="20dp"
-                android:text="dasunweerasooriya@gmail.com"
+                android:text="docno1@gmail.com"
                 android:textStyle="bold" />
 
         </LinearLayout>
