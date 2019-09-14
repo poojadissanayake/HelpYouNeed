@@ -163,7 +163,7 @@ public class UserBehaviourService extends Service {
         mNotificationManager.notify(001, mBuilder.build());
         Intent map = new Intent(this, ImagesSuggesting.class);
         startActivity(map);
-        //sendSMSone();
+        sendSMSone();
 
 
     }
